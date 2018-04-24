@@ -1,6 +1,7 @@
 const webSocketServer = require('websocket').server;
 const http = require('http');
 const portNumber = 8899
+
 exports.server = () =>{
   const webSocketsServerPort = portNumber;
   const server = http.createServer(function (request, response) { });
@@ -13,8 +14,10 @@ exports.server = () =>{
     var connection = request.accept(null, request.origin);
     var index = clients.push(connection) - 1;
     connection.on('message', function (message) {
-      console.log(message.utf8Data);
+      //console.log(message.utf8Data);
       //これをexportsしたい
+      const createStream = require("./stream.js").create
+      createStream(message.utf8Data)
     });
     connection.on('close', function (connection) {
       clients.splice(index, 1);
