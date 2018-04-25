@@ -25,10 +25,7 @@ exports.server = () =>{
   })
   setTimeout(()=>{
     console.log("send")
-    clients[0].send(JSON.stringify({
-      "username" : "krt6017",
-      "text" : "てすとーーーkjkkkzkjjkknーー"
-    }))
+    clients[0].send(JSON.stringify({data:"にゃーん"}))
     },20000)
 
 }
