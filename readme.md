@@ -4,6 +4,10 @@
 
 ### 使い方  
 
+```
+npm i  
+```
+
 loginData.jsonを適切に設定します。  
 
 app.jsをrequireします  

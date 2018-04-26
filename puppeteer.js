@@ -43,16 +43,12 @@ exports.puppeteer = () =>{
       ws.onerror = function (e) {
         'サーバに接続できませんでした。'
       }
-      ws.onmessage = (data,a,b,c=>{
-        ws.send(data);
-        data = JSON.stringify(data)
-        ws.send(data);
-        a = JSON.stringify(a)
-        ws.send(a);
-        b = JSON.stringify(b)
-        ws.send(b);
-        c = JSON.stringify(c)
-        ws.send(c);
+      ws.onmessage = data => {
+        
+        //ws.send(data);
+        //data = JSON.stringify(data);
+        //ws.send(data);
+        
         /*
         let userListTemp = document.getElementsByClassName("avatar compose-account-img size48");
         let userList = [];
@@ -66,7 +62,7 @@ exports.puppeteer = () =>{
           document.getElementsByClassName("js-send-button js-spinner-button js-show-tip Button--primary btn-extra-height padding-v--6 padding-h--12")[0].click()
         }
         */
-      })
+      }
       const output = (returnJSON) => {
         ws.send(JSON.stringify({
           data: returnJSON

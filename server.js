@@ -23,9 +23,10 @@ exports.server = () =>{
       clients.splice(index, 1);
     });
   })
+  /*
   setTimeout(()=>{
     console.log("send")
     clients[0].send(JSON.stringify({data:"にゃーん"}))
     },20000)
-
+    */
 }
