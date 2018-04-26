@@ -10,7 +10,7 @@ npm i
 
 loginData.jsonを適切に設定します。  
 
-app.jsをrequireします  
+index.jsをrequireします  
 
 requireしたものの.writeを取得するとツイートのjsonが出力されます。
 

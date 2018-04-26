@@ -1,15 +1,15 @@
 {
+  "private":false,
   "name": "tweetdeckstream",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.3",
     "http": "0.0.0",
     "puppeteer": "^1.3.0",
     "socket.io": "^2.1.0",

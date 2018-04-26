@@ -14,8 +14,6 @@ exports.server = () =>{
     var connection = request.accept(null, request.origin);
     var index = clients.push(connection) - 1;
     connection.on('message', function (message) {
-      //console.log(message.utf8Data);
-      //これをexportsしたい
       const createStream = require("./stream.js").create
       createStream(message.utf8Data)
     });
