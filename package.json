@@ -1,7 +1,7 @@
 {
   "private":false,
   "name": "tweetdeckstream",
-  "version": "1.0.2",
+  "version": "1.0.5",
   "description": "",
   "main": "index.js",
   "scripts": {

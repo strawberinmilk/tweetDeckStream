@@ -5,17 +5,17 @@
 ### 使い方  
 
 ```
-npm i  
+npm i tweetdeckstream  
 ```
 
 loginData.jsonを適切に設定します。  
 
-index.jsをrequireします  
+npmから落とした場合はモジュール名を、githubから落とした場合はindex.jsをrequireします  
 
-requireしたものの.writeを取得するとツイートのjsonが出力されます。
+requireしたものの .write を取得するとツイートのjsonが出力されます。
 
 ```
-const tweetDeckStream = require("./app.js")
+const tweetDeckStream = require("./tweetdeckstream")/*require("index.js")*/
 tweetDeckStream.write = (data)=>{
   console.log(data);
 }

@@ -14,6 +14,7 @@ exports.server = () =>{
     var connection = request.accept(null, request.origin);
     var index = clients.push(connection) - 1;
     connection.on('message', function (message) {
+      console.log(message)
       const createStream = require("./stream.js").create
       createStream(message.utf8Data)
     });
@@ -23,8 +24,13 @@ exports.server = () =>{
   })
   /*
   setTimeout(()=>{
+    setInterval(()=>{
     console.log("send")
-    clients[0].send(JSON.stringify({data:"にゃーん"}))
-    },20000)
-    */
+    clients[0].send(JSON.stringify({
+      "username" : "@krt6017",
+      "text" : "2にゃーん"
+    }))
+    },1000)
+  },20000)
+  */
 }

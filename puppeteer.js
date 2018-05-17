@@ -33,35 +33,35 @@ exports.puppeteer = () =>{
     //await page.screenshot({ path: 'after1login.png' });    
     const innerJavaScript = await page.evaluate(() => {
       //////////////////////////////↓↓↓extention↓↓↓//////////////////////////////////////////////////////////////
-      const portNumber = 8899
       /*
       node = document.getElementsByClassName("stream-item js-stream-item  is-draggable  is-actionable")[0].dataset.tweetId
       */
+      const portNumber = 8899
 
       const ws = new WebSocket(`ws://localhost:${portNumber}/`);
       var userName = 'ゲスト' + Math.floor(Math.random() * 100);
       ws.onerror = function (e) {
         'サーバに接続できませんでした。'
       }
-      ws.onmessage = data => {
+      ws.onmessage = event => {
+        document.getElementsByClassName("js-show-drawer js-show-tip Button Button--primary Button--large tweet-button margin-t--4 margin-b--8")[0].click()
+        let username = JSON.parse(event.data).username.replace(/@/,"")
+        let text = JSON.parse(event.data).text
         
-        //ws.send(data);
-        //data = JSON.stringify(data);
-        //ws.send(data);
-        
-        /*
         let userListTemp = document.getElementsByClassName("avatar compose-account-img size48");
         let userList = [];
         for(let i=0;i<userListTemp.length;i++){
           userList.push(userListTemp[i].alt.replace(/'s avatar/,"").toLowerCase())
         }
-        if(userListTemp[userList.indexOf(data.username.toLowerCase())]){
-          userListTemp[userList.indexOf(data.username.toLowerCase())].click();
-          document.getElementsByTagName("textarea")[0].value = data.text
+        if(userListTemp[userList.indexOf(username.toLowerCase())]){
+          userListTemp[userList.indexOf(username.toLowerCase())].click();
+          document.getElementsByTagName("textarea")[0].value = text
+          document.getElementsByClassName("js-progress-circle stroke-twitter-blue")[0].innerHTML = "<circle class='js-progress-circle stroke-twitter-blue' cx='50%' cy='50%' r='8' fill='none' stroke-width='2' style='stroke-dasharray: 30.2655; stroke-dashoffset: 60.2655;'></circle>"
           document.getElementsByClassName("js-send-button js-spinner-button js-show-tip Button--primary btn-extra-height padding-v--6 padding-h--12")[0].className = "js-send-button js-spinner-button js-show-tip Button--primary btn-extra-height padding-v--6 padding-h--12"
           document.getElementsByClassName("js-send-button js-spinner-button js-show-tip Button--primary btn-extra-height padding-v--6 padding-h--12")[0].click()
         }
-        */
+        
+        
       }
       const output = (returnJSON) => {
         ws.send(JSON.stringify({
